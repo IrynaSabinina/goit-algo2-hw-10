@@ -1,44 +1,63 @@
 # goit-algo2-hw-10
 
-The program will assign lecturers to subjects based on the greedy algorithm described below. If all subjects are successfully covered, it will print the schedule with lecturers and their assigned subjects. If it's not possible to cover all subjects, it will display a message indicating the failure.
+# Складання розкладу занять за допомогою жадібного алгоритму
 
-### File Structure
+Цей проект реалізує програму для складання розкладу занять в університеті, використовуючи жадібний алгоритм для задачі покриття множини. Метою програми є мінімізація кількості викладачів та покриття всіх предметів, щоб ефективно організувати навчальний процес.
 
-Here is a breakdown of the key files in this project:
+## Опис завдання
 
-goit-algo2-hw-10/
-│
-├── main.py          # The main script to execute the scheduling process
-├── schedule.py      # Contains the logic for assigning lecturers to subjects
-└── teacher.py       # Contains the definition of the Teacher class
+У програмі викладачі призначаються до предметів таким чином, щоб мінімізувати кількість викладачів і одночасно забезпечити викладання всіх предметів. Вибір викладача для кожного предмета здійснюється за жадібним алгоритмом, де віддається перевага викладачеві, який може викладати найбільшу кількість ще не покритих предметів.
 
-**main.py**
+## Технічні умови
 
-This is the main entry point of the program. It initializes the subjects, teachers, and calls the create_schedule function to generate the schedule.
+### Вхідні дані:
 
-**schedule.py**
+- **Множина предметів**: 
+  - Математика
+  - Фізика
+  - Хімія
+  - Інформатика
+  - Біологія
 
-Contains the create_schedule function that implements the greedy algorithm for assigning lecturers to subjects.
+- **Список викладачів**:
+  1. Олександр Іваненко, 45 років, o.ivanenko@example.com, предмети: {'Математика', 'Фізика'}
+  2. Марія Петренко, 38 років, m.petrenko@example.com, предмети: {'Хімія'}
+  3. Сергій Коваленко, 50 років, s.kovalenko@example.com, предмети: {'Інформатика', 'Математика'}
+  4. Наталія Шевченко, 29 років, n.shevchenko@example.com, предмети: {'Біологія', 'Хімія'}
+  5. Дмитро Бондаренко, 35 років, d.bondarenko@example.com, предмети: {'Фізика', 'Інформатика'}
+  6. Олена Гриценко, 42 роки, o.grytsenko@example.com, предмети: {'Біологія'}
 
-**teacher.py**
+### Алгоритм:
 
-Defines the Teacher class with attributes like name, age, email, and a set of subjects the teacher can teach. It also contains the logic for assigning subjects to teachers.
+Жадібний алгоритм вибирає викладача, який може викладати найбільшу кількість ще не покритих предметів. Якщо є кілька викладачів, які можуть викладати однакову кількість предметів, вибирається наймолодший.
 
-## Algorithm Explanation
-### Greedy Approach:
+### Мета:
+- Покрити всі предмети з множини предметів.
+- Мінімізувати кількість викладачів для покриття всіх предметів.
 
-The greedy algorithm is used to minimize the number of lecturers needed while ensuring all subjects are taught. The steps are as follows:
+### Критерії прийняття:
+1. Програма повинна покривати всі предмети з множини предметів.
+2. Якщо неможливо покрити всі предмети наявними викладачами, програма повинна вивести відповідне повідомлення.
+3. Усі предмети повинні бути покриті викладачами, а всі викладачі — призначені відповідно своїм предметам.
 
-Input: A list of subjects and a list of teachers with their available subjects.
+---
 
-Selection: At each step, select the teacher who can teach the most number of subjects that are still uncovered. If there are multiple candidates, select the youngest teacher (based on age).
+## Інструкції з використання
 
-Assignment: Assign the selected teacher to all subjects they can cover and remove these subjects from the list of uncovered subjects.
+### Встановлення:
 
-Repeat: Continue this process until all subjects are covered or no teacher can cover the remaining subjects.
+1. Завантажте або клонувати репозиторій:
+   ```bash
+   git clone https://github.com/IrynaSabinina/goit-algo2-hw-10.git
+   cd goit-algo2-hw-10.git
+   python3 main.py
+   ```
 
-Output: A list of teachers and the subjects they are assigned to.
+### Структура проекту:
 
-### Criteria:
+main.py: основний файл для запуску програми.
 
-If it's not possible to cover all subjects with the available teachers, the program outputs a message saying it cannot generate a valid schedule.
+schedule.py: містить реалізацію алгоритму для створення розкладу та класу Teacher.
+
+README.md: документація для користувачів та інструкції.
+
