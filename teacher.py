@@ -4,8 +4,8 @@ class Teacher:
         self.last_name = last_name
         self.age = age
         self.email = email
-        self.can_teach_subjects = set(can_teach_subjects)
-        self.assigned_subjects = []
-
+        self.can_teach_subjects = set(can_teach_subjects)  # A set of subjects the teacher can teach
+        self.assigned_subjects = set()  # Subjects assigned to the teacher
+    
     def assign_subject(self, subject):
-        self.assigned_subjects.append(subject)
+        self.assigned_subjects.add(subject)
